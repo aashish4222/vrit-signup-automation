@@ -16,7 +16,6 @@ public class MailosaurHelper {
 
     private final MailosaurClient mailosaur;
 
-    // Constructor
     public MailosaurHelper() {
 
         String apiKey = System.getenv("MAILOSAUR_API_KEY");
@@ -28,7 +27,6 @@ public class MailosaurHelper {
         }
 
         System.out.println("Mailosaur API key loaded: true");
-        System.out.println("API key length: " + apiKey.length());
 
         mailosaur = new MailosaurClient(apiKey);
     }
@@ -37,10 +35,8 @@ public class MailosaurHelper {
     public String generateEmailAddress()
             throws IOException, MailosaurException {
 
-        String email = mailosaur.servers()
-                                .generateEmailAddress(SERVER_ID);
-
-        return email;
+        return mailosaur.servers()
+                .generateEmailAddress(SERVER_ID);
     }
 
     // Retrieve OTP from email
@@ -54,11 +50,11 @@ public class MailosaurHelper {
 
         Message message = mailosaur.messages()
                 .get(SERVER_ID, criteria, 60);
+
         if (message == null || message.text() == null) {
             throw new RuntimeException(
                 "Verification email not received!"
-       
-            		);
+            );
         }
 
         System.out.println("Verification email received!");
@@ -66,7 +62,6 @@ public class MailosaurHelper {
 
         String emailBody = message.text().body();
 
-        // Extract six-digit OTP
         Pattern pattern = Pattern.compile("\\b\\d{6}\\b");
         Matcher matcher = pattern.matcher(emailBody);
 

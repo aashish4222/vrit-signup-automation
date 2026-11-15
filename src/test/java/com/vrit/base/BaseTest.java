@@ -28,7 +28,7 @@ public class BaseTest {
 
         System.out.println("Chrome launched successfully!");
 
-        driver.get("https://authorized-partner.vercel.app/");
+        driver.get("https://theauthorizedpartner.com/");
 
         System.out.println("Website opened successfully!");
         System.out.println("Page Title: " + driver.getTitle());
@@ -44,7 +44,7 @@ public class BaseTest {
 
         if (driver != null) {
             System.out.println("Closing Chrome browser...");
-            driver.quit();
+           // driver.quit();
             driver = null;
         }
     }

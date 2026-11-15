@@ -1,7 +1,9 @@
 target/
 test-output/
-.metadata/
 .settings/
+.metadata/
+reports/
+screenshots/
 *.log
 *.tmp
 .env
