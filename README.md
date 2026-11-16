@@ -39,8 +39,6 @@ Configure your Mailosaur API key as an environment variable:
 
 `MAILOSAUR_API_KEY`
 
-Do not commit API keys, passwords, or other credentials to GitHub.
-
 ## How to Run
 1. Clone this repository.
 2. Open the project in Eclipse or your preferred Java IDE.
